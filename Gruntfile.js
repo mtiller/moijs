@@ -5,14 +5,28 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		jison: {
-			target : {
-				options: { moduleType: 'amd' },
+			tokenizer: {
+				options: {
+					moduleType: 'commonjs',
+				},
 				files: {
-					'molexer-amd.js': ['molexer.jison',  'molexer.jisonlex']
+					'codemirror/mode/modelica/modelica.js': [
+						'molexer.jison',
+						'molexer.jisonlex'
+					]
+				}
+			},
+			parser: {
+				options: {
+					moduleType: 'commonjs',
+					moduleParser: 'lr',
+				},
+				files: {
+					'moparser.js': ['moparser.jison',  'molexer.jisonlex']
 				}
 			}
 		}
 	});
 
-	grunt.registerTask('default', ['jison']);
+	grunt.registerTask('default', ['jison:parser', 'jison:tokenizer']);
 }
