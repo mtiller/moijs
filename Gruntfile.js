@@ -2,6 +2,7 @@
 
 module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-jison');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 
 	grunt.initConfig({
 		jison: {
@@ -25,7 +26,8 @@ module.exports = function(grunt) {
 					'moparser.js': ['moparser.jison',  'molexer.jisonlex']
 				}
 			}
-		}
+		},
+		clean: ["./moparser.js", "codemirror/mode/modelica/modelica.js"]
 	});
 
 	grunt.registerTask('default', ['jison:parser', 'jison:tokenizer']);

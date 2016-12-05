@@ -8,6 +8,7 @@
   },
   "scripts": {
     "prepublish": "grunt",
+    "clean": "grunt clean",
     "test": "mocha"
   },
   "repository": {
@@ -25,8 +26,9 @@
   },
   "homepage": "https://github.com/omuses/moijs",
   "devDependencies": {
-    "jison": "^0.4.15",
     "grunt": "^0.4.5",
-    "grunt-jison": "^1.3.2"
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-jison": "^1.3.2",
+    "jison": "^0.4.15"
   }
 }
