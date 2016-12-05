@@ -15,7 +15,7 @@ dummy: ;
 %%
 
 /* Define Modelica mode for CodeMirror if it has been loaded */
-if (typeof CodeMirror !== "undefined") {
+function defineMode(CodeMirror) {
   CodeMirror.defineMode("modelica", function () {
 
     // mapping of tokens to styles
@@ -189,4 +189,8 @@ if (typeof CodeMirror !== "undefined") {
     return {from: CodeMirror.Pos(line, startCh),
             to: CodeMirror.Pos(end, endCh)};
   });
+}
+
+module.exports = {
+  defineMode: defineMode
 }
